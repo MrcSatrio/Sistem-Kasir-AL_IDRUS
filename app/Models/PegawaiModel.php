@@ -17,6 +17,7 @@ class PegawaiModel extends Model
         'nama_pegawai',
         'telp_pegawai',
         'alamat_pegawai',
+        'instansi_pegawai',
     ];
 
     protected $validationRules = [
@@ -25,7 +26,8 @@ class PegawaiModel extends Model
         'password_confirm' => 'matches[password]|required_with[password]',
         'nama_pegawai'    => 'required|alpha_space|max_length[32]|is_unique[pegawai.nama_pegawai]',
         'telp_pegawai'    => 'max_length[13]|numeric',
-        'alamat_pegawai'  => 'max_length[128]|alpha_numeric_punct'
+        'alamat_pegawai'  => 'max_length[128]|alpha_numeric_punct',
+        'instansi_pegawai'  => 'max_length[32]|alpha_numeric_space'
     ];
     protected $validationMessages = [
         'username' => [
@@ -57,6 +59,10 @@ class PegawaiModel extends Model
         ],
         'alamat_pegawai' => [
             'alpha_numeric_punct' => 'Kolom harus berupa huruf, angka, dan simbol',
+            'max_length'    => 'Karakter tidak boleh lebih dari 32 huruf'
+        ],
+        'instansi_pegawai' => [
+            'alpha_numeric_space' => 'Kolom harus berupa huruf, angka, dan spasi',
             'max_length'    => 'Karakter tidak boleh lebih dari 32 huruf'
         ],
     ];

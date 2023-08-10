@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 09, 2023 at 11:41 AM
+-- Generation Time: Aug 10, 2023 at 03:30 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 7.4.29
 
@@ -55,7 +55,7 @@ CREATE TABLE `customer` (
 CREATE TABLE `kartu` (
   `id_kartu` int(11) NOT NULL,
   `nomor_kartu` char(10) DEFAULT NULL,
-  `saldo_kartu` int(11) NOT NULL
+  `saldo_kartu` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -79,10 +79,11 @@ CREATE TABLE `pegawai` (
   `id_pegawai` int(11) NOT NULL,
   `id_role` char(1) NOT NULL,
   `username` varchar(32) NOT NULL,
-  `password` varchar(32) NOT NULL,
+  `password` varchar(255) NOT NULL,
   `nama_pegawai` varchar(32) NOT NULL,
   `telp_pegawai` char(13) DEFAULT NULL,
-  `alamat_pegawai` varchar(128) DEFAULT NULL
+  `alamat_pegawai` varchar(128) DEFAULT NULL,
+  `instansi_pegawai` varchar(32) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
