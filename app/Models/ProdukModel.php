@@ -7,12 +7,12 @@ use CodeIgniter\Model;
 class ProdukModel extends Model
 {
     protected $table      = 'produk';
-    protected $primaryKey = 'qr_produk';
+    protected $primaryKey = 'bar_produk';
 
     protected $useAutoIncrement = false;
 
     protected $allowedFields = [
-        'qr_produk',
+        'bar_produk',
         'id_kategori',
         'id_brand',
         'nama_produk',
@@ -22,16 +22,17 @@ class ProdukModel extends Model
     ];
 
     protected $validationRules = [
-        'qr_produk'        => 'required|regex_match[/^\d{13,14}$/]',
-        'nama_produk'        => 'required|regex_match[/^[A-Za-z0-9\-_.]+$/]|max_length[32]|is_unique[produk.nama_produk]',
-        'produsen_produk'     => 'max_length[32]|alpha_space',
+        'bar_produk'        => 'required|regex_match[/^\d{13,14}$/]',
+        'id_kategori'        => 'required',
+        'id_brand'        => 'required',
+        'nama_produk'        => 'required|alpha_numeric_punct|max_length[32]|is_unique[produk.nama_produk]',
         'uom_produk'     => 'in_list[pcs,pack,dus]',
         'harga_produk'     => 'required|greater_than_equal_to[0]'
     ];
     protected $validationMessages = [
         'qr_produk' => [
-            'required' => 'Mohon mengisi kolom QR code',
-            'regex_match' => 'QR code invalid'
+            'required' => 'Mohon mengisi kolom Barcode',
+            'regex_match' => 'Barcode invalid'
         ],
         'nama_produk' => [
             'required' => 'Mohon mengisi kolom Nama produk',

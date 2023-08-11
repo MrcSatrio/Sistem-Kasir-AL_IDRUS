@@ -7,6 +7,7 @@ use \App\Controllers\BaseController;
 class Login extends BaseController
 {
     protected $pegawaiModel;
+
     public function index()
     {
         return view('auth/login');
@@ -19,21 +20,21 @@ class Login extends BaseController
         $password = $this->request->getVar('password');
 
         // Pemanggilan data dari MODEL
-        $user = $this->pegawaiModel->where('id_pegawai', $username)->first();
+        $user = $this->pegawaiModel->where('username', $username)->first();
         // End Pemanggilan data dari MODEL
         if ($user && password_verify($password, $user['password'])) {
 
-                //Session untuk login
-                $session = session();
-                $sessionData = [
-                    'id_pegawai' => $user['id_pegawai'],
-                    'username' => $user['username'],
-                    'id_role' => $user['id_role'],
-                    'nama' => $user['nama_pegawai'],
+            //Session untuk login
+            $session = session();
+            $sessionData = [
+                'id_pegawai' => $user['id_pegawai'],
+                'username' => $user['username'],
+                'id_role' => $user['id_role'],
+                'nama' => $user['nama_pegawai'],
 
-                ];
-                $session->set($sessionData);
-                //End  Session untuk Login
+            ];
+            $session->set($sessionData);
+            //End  Session untuk Login
             // Memeriksa role pengguna
             if ($user['id_role'] == 1) {
                 return redirect()->to('/koperasi/dashboard');
@@ -46,11 +47,13 @@ class Login extends BaseController
             }
             // End Memeriksa role Pengguna
         } else {
-            $data['error'] = 'Username atau Password Salah';
-            return view('/', $data);
+            // $data['error'] = 'Username atau Password Salah';
+            // return view('/', $data);
+            session()->setFlashdata('gagal_login', 'No users found.');
+            return redirect()->back()->withInput();
         }
     }
-    
+
     public function logout()
     {
         $session = session();
