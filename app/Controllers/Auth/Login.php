@@ -31,6 +31,7 @@ class Login extends BaseController
                 'username' => $user['username'],
                 'id_role' => $user['id_role'],
                 'nama' => $user['nama_pegawai'],
+                'instansi' => $user['instansi_pegawai'],
 
             ];
             $session->set($sessionData);

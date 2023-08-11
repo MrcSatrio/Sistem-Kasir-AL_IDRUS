@@ -53,9 +53,7 @@
             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">
                     <?php
-                    if (isset($user_identity['nama_pegawai'])) {
-                        $user_identity['nama_pegawai'];
-                    }
+                    echo session('nama');
                     ?>
                 </span>
                 <img class="img-profile rounded-circle" src="<?= base_url() ?>assets/img/undraw_rocket.svg">

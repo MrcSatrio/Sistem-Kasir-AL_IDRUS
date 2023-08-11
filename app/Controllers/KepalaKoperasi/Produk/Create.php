@@ -17,10 +17,6 @@ class Create extends BaseController
             $data =
                 [
                     'title'     => 'Koperasi - Tambah Produk',
-                    'user_identity' => $this->pegawaiModel
-                        ->join('role', 'role.id_role = pegawai.id_role')
-                        ->where('id_pegawai', session('id_pegawai'))
-                        ->first(),
                     'brand'     => $this->brandModel->findAll(),
                     'kategori'  => $this->kategoriModel->findAll(),
                 ];
