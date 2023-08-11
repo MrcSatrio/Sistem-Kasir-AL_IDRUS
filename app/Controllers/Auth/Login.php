@@ -19,7 +19,7 @@ class Login extends BaseController
         $password = $this->request->getVar('password');
 
         // Pemanggilan data dari MODEL
-        $user = $this->pegawaiModel->where('id_pegawai', $username)->first();
+        $user = $this->pegawaiModel->where('username', $username)->first();
         // End Pemanggilan data dari MODEL
         if ($user && password_verify($password, $user['password'])) {
 
