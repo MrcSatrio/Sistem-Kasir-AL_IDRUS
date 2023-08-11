@@ -30,6 +30,9 @@ $routes->set404Override();
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 
+// ------------------------------ Develop Page ------------------------------
+$routes->get('koperasi/produk/create', 'KepalaKoperasi\Produk\Create::index');
+
 // ------------------------------ AUTH ------------------------------
 $routes->get('/', 'Auth\Login::index');
 $routes->post('/login', 'Auth\Login::login');
