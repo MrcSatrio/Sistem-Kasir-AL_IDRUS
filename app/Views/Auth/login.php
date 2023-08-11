@@ -21,7 +21,7 @@
                     <input type="password" required placeholder="Password" name="password" id="pass">
                     </div>
                     <div class="footer-form">
-                    <a href="#">Cek saldo ku</a><br>
+                    <a href="#">Cek saldo saya</a><br>
                     </div>
                     <button type="submit">Masuk</button>
             </form>
