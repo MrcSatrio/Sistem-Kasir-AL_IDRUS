@@ -46,13 +46,13 @@ $routes->get('/logout', 'Auth\Login::logout');
 
 // ------------------------- KEPALA KOPERASI -------------------------
 $routes->group('koperasi', ['filter' => 'role'], function ($routes) {
-    $routes->get('dashboard', 'Home::dashboard');
+    $routes->get('dashboard', 'KepalaKoperasi\Dashboard::index');
     $routes->get('produk/create', 'KepalaKoperasi\Produk\Create::index');
 });
 
 // ------------------------------ KASIR -----------------------------
 $routes->group('kasir', ['filter' => 'role'], function ($routes) {
-    $routes->get('dashboard', 'Kasir\Home::index');
+    $routes->get('dashboard', 'Kasir\Dashboard::index');
 });
 
 /*
