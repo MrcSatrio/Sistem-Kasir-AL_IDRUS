@@ -26,7 +26,14 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <?= $this->include('kepalakoperasi/sidebar/index'); ?>
+        <?php
+        if (session('id_role') === '1') {
+            echo $this->include('kepalakoperasi/sidebar/index');
+        } else {
+            echo $this->include('kasir/sidebar/index');
+        }
+        ?>
+
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
