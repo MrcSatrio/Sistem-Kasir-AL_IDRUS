@@ -5,7 +5,7 @@
         <!-- <div class="sidebar-brand-icon rotate-n-15">
             <i class="fas fa-laugh-wink"></i>
         </div> -->
-        <div class="sidebar-brand-text mx-3">Kepala</div>
+        <div class="sidebar-brand-text mx-3">Nama KASIR</div>
     </a>
 
     <!-- Divider -->
@@ -15,7 +15,7 @@
     <li class="nav-item active">
         <a class="nav-link" href="index.html">
             <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Dashboard Kepala</span></a>
+            <span>Dashboard Kasir</span></a>
     </li>
 
     <!-- Divider -->
