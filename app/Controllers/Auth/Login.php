@@ -15,7 +15,7 @@ class Login extends BaseController
 
     public function login()
     {
-        // Pemanggilan post dari VIEWS
+        //  Pemanggilan post dari VIEWS
         $username = $this->request->getVar('username');
         $password = $this->request->getVar('password');
 
