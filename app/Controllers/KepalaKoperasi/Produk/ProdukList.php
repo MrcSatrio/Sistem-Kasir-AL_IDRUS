@@ -8,6 +8,10 @@ class ProdukList extends BaseController
 {
     public function index()
     {
-        return view('kepalakoperasi/produk/list_produk');
+        $data =
+            [
+                'title'     => 'Koperasi - List Produk',
+            ];
+        return view('kepalakoperasi/produk/list_produk', $data);
     }
 }

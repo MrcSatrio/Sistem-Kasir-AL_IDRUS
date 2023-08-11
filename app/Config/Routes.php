@@ -31,11 +31,6 @@ $routes->set404Override();
 // route since we don't have to scan directories.
 
 // ------------------------------ Develop Page ------------------------------
-$routes->get('koperasi/produk/create', 'KepalaKoperasi\Produk\Create::index');
-
-$routes->get('koperasi/produk/list', 'KepalaKoperasi\Produk\ProdukList::index');
-
-$routes->post('koperasi/produk/create', 'KepalaKoperasi\Produk\Create::index');
 
 
 // ------------------------------ AUTH ------------------------------
@@ -48,6 +43,8 @@ $routes->get('/logout', 'Auth\Login::logout');
 $routes->group('koperasi', ['filter' => 'role'], function ($routes) {
     $routes->get('dashboard', 'KepalaKoperasi\Dashboard::index');
     $routes->get('produk/create', 'KepalaKoperasi\Produk\Create::index');
+    $routes->post('produk/create', 'KepalaKoperasi\Produk\Create::index');
+    $routes->get('produk/list', 'KepalaKoperasi\Produk\ProdukList::index');
 });
 
 // ------------------------------ KASIR -----------------------------
