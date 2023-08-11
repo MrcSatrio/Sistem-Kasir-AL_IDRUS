@@ -32,6 +32,7 @@ $routes->set404Override();
 
 // ------------------------------ Develop Page ------------------------------
 $routes->get('koperasi/produk/create', 'KepalaKoperasi\Produk\Create::index');
+$routes->post('koperasi/produk/create', 'KepalaKoperasi\Produk\Create::index');
 
 // ------------------------------ AUTH ------------------------------
 $routes->get('/', 'Auth\Login::index');
