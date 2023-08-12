@@ -4,10 +4,10 @@
 
     <div class="input-group mb-3">
         <div class="input-group-prepend">
-            <button class="btn btn-outline-primary" type="button" id="button-addon1">Scan</button>
+            <button class="btn btn-outline-primary" type="button" id="barcode-scan">Scan</button>
         </div>
         <input type="text" class="form-control" placeholder="Tekan 'Scan' disamping dan mulai untuk membaca barcode dengan scanner" aria-label="Example text with button addon" aria-describedby="button-addon1" readonly>
-        <input type="hidden" name="bar_produk" value="123456789">
+        <input type="hidden" name="bar_produk" id="bar_produk">
     </div>
 
     <h5 class="card-title"><strong>Informasi Produk</strong></h5>
@@ -23,7 +23,7 @@
                     <?php endforeach ?>
                 </select>
                 <div class="input-group-append">
-                    <button class="btn btn-outline-primary" type="button" id="button-addon2">Tambah Brand / Merk</button>
+                    <a class="btn btn-outline-primary" href="<?= base_url('koperasi/brand/create') ?>">Tambah Brand / Merk</a>
                 </div>
             </div>
         </div>
@@ -76,10 +76,26 @@
     <button class="btn btn-primary" type="submit">Simpan Produk</button>
 </form>
 <script>
-    // form-create.js
+    // format titik pada harga produk
     function formatNumber(input) {
         let inputValue = input.value.replace(/\./g, '');
         inputValue = inputValue.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
         input.value = inputValue;
     }
+
+    document.getElementById('barcode-scan').addEventListener('click', function() {
+        Swal.fire({
+            title: 'Scanning...',
+            text: 'Mulai scan produk Anda',
+            input: 'text',
+            inputPlaceholder: 'Menunggu scanning...',
+            confirmButtonText: 'OK',
+            showCancelButton: true,
+            preConfirm: (inputValue) => {
+                if (inputValue) {
+                    document.getElementById('bar_produk').value = inputValue;
+                }
+            }
+        });
+    });
 </script>
