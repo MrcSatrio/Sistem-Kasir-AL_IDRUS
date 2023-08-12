@@ -57,7 +57,7 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Manajemen Pegawai:</h6>
                 <a class="collapse-item" href="#">Pegawai Terdaftar</a>
-                <a class="collapse-item" href="#">Tambah Pegawai</a>
+                <a class="collapse-item" href="<?= base_url('koperasi/brand/create') ?>">Tambah Pegawai</a>
             </div>
         </div>
     </li>

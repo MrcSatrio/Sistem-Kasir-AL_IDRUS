@@ -50,6 +50,8 @@ $routes->group('koperasi', ['filter' => 'role'], function ($routes) {
     $routes->post('brand/create', 'KepalaKoperasi\Brand\Create::index');
 
     $routes->get('pegawai/insert', 'KepalaKoperasi\Pegawai\Form_pegawai::index');
+    $routes->post('pegawai/insert', 'KepalaKoperasi\Pegawai\Form_pegawai::index');
+
 });
 
 // ------------------------------ KASIR -----------------------------
