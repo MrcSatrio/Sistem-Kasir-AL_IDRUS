@@ -18,6 +18,9 @@
     <!-- Custom styles for this template-->
     <link href="<?= base_url() ?>/assets/css/sb-admin-2.min.css" rel="stylesheet">
 
+    <!-- CSS sweetalert2 -->
+    <link href="<?= base_url() ?>/assets/css/sweetalert2.min.css" rel="stylesheet">
+
     <!-- Custom styles for this page -->
     <link href="<?= base_url() ?>/assets/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
@@ -117,6 +120,9 @@
     <script src="<?= base_url() ?>/assets/js/demo/chart-area-demo.js"></script>
     <script src="<?= base_url() ?>/assets/js/demo/chart-pie-demo.js"></script>
     <script src="<?= base_url() ?>/assets/js/demo/datatables-demo.js"></script>
+
+    <!-- sweetalert2 js -->
+    <script src="<?= base_url() ?>/assets/js/sweetalert2.min.js"></script>
 
 </body>
 
