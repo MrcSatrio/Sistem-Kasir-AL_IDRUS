@@ -9,11 +9,36 @@ $this->section('container'); ?>
 <div class="card shadow mb-4">
     <div class="card-body">
 
-        <?php if (session()->has('break_the_rules')) : ?>
-            <div class="alert alert-success">
-                <?= session('break_the_rules') ?>
+        <?php if (session()->has('field_errors')) : ?>
+            <div class="alert alert-danger" id="alertErrors">
+                <?= session('field_errors') ?>
             </div>
         <?php endif; ?>
+
+        <?php if (session()->has('field_errors')) : ?>
+            <script>
+                document.addEventListener("DOMContentLoaded", function() {
+                    Swal.fire({
+                        title: 'Validation Error',
+                        icon: 'error',
+                        text: 'Mohon isi data sesuai kriteria',
+                    });
+                });
+            </script>
+        <?php endif; ?>
+
+        <?php if (session()->has('success')) : ?>
+            <script>
+                document.addEventListener("DOMContentLoaded", function() {
+                    Swal.fire(
+                        'Success!',
+                        'Data berhasil disimpan',
+                        'success'
+                    )
+                });
+            </script>
+        <?php endif; ?>
+
 
         <?= include('form-create.php') ?>
 

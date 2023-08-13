@@ -17,7 +17,7 @@ class BrandModel extends Model
 
     protected $validationRules = [
         'nama_brand'        => 'required|alpha_space|max_length[32]|is_unique[brand.nama_brand]',
-        'produsen_brand'     => 'max_length[32]|alpha_space'
+        'produsen_brand'     => 'max_length[32]|alpha_numeric_punct'
     ];
     protected $validationMessages = [
         'nama_brand' => [
@@ -27,7 +27,7 @@ class BrandModel extends Model
             'is_unique' => 'Maaf, brand sudah terdaftar',
         ],
         'produsen_brand' => [
-            'alpha_space' => 'Kolom harus berupa huruf',
+            'alpha_numeric_punct' => 'Kolom harus berupa huruf',
             'max_length' => 'Karakter tidak boleh lebih dari 32 huruf'
         ],
     ];
