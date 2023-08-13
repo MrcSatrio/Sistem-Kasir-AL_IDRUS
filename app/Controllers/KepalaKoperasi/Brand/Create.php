@@ -37,7 +37,7 @@ class Create extends BaseController
             ]
         );
 
-        session()->setFlashdata('success', null);
+        session()->setFlashdata('success', 'Data berhasil disimpan.');
         return redirect()->back()->withInput();
     }
 }

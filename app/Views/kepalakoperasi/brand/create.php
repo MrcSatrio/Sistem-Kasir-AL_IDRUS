@@ -30,15 +30,14 @@ $this->section('container'); ?>
         <?php if (session()->has('success')) : ?>
             <script>
                 document.addEventListener("DOMContentLoaded", function() {
-                    Swal.fire(
-                        'Success!',
-                        'Data berhasil disimpan',
-                        'success'
-                    )
+                    Swal.fire({
+                        title: 'Success!',
+                        icon: 'success',
+                        text: '<?= session('success') ?>',
+                    });
                 });
             </script>
         <?php endif; ?>
-
 
         <?= include('form-create.php') ?>
 
