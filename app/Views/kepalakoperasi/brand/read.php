@@ -11,7 +11,7 @@ $this->section('container'); ?>
     <div class="card-body">
 
         <div class="table-responsive">
-            <table class="table align-middle mb-0 bg-white" id="dataTableProduk">
+            <table class="table align-middle mb-0 bg-white" id="dataTable">
                 <thead class="bg-light">
                     <tr>
                         <th style="width: 5%;">#</th>
@@ -28,10 +28,10 @@ $this->section('container'); ?>
                             <td><?= $br['nama_brand']; ?></td>
                             <td><?= $br['produsen_brand']; ?></td>
                             <td>
-                                <a href="#" class="btn btn-sm btn-warning btn-circle">
+                                <a href="<?= base_url('koperasi/brand/update/' . $br['id_brand']) ?>" class="btn btn-sm btn-warning btn-circle update">
                                     <i class="far fa-edit"></i>
                                 </a>
-                                <a href="<?= base_url("koperasi/brand/delete/{$br['id_brand']}") ?>" class="btn btn-sm btn-danger btn-circle delete">
+                                <a href="<?= base_url('koperasi/brand/delete/' . $br['id_brand']) ?>" class="btn btn-sm btn-danger btn-circle delete">
                                     <i class="fas fa-trash"></i>
                                 </a>
                             </td>
@@ -45,7 +45,6 @@ $this->section('container'); ?>
 </div>
 
 <script>
-    // Menggunakan class "delete-button" untuk mendapatkan semua tombol hapus
     const deleteButtons = document.querySelectorAll('.delete');
 
     deleteButtons.forEach(button => {
@@ -92,7 +91,35 @@ $this->section('container'); ?>
             });
         });
     });
-</script>
 
+    const updateButton = document.querySelectorAll('.update');
+
+    updateButton.forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            const url = this.getAttribute('href');
+
+            Swal.fire({
+                title: 'Konfirmasi Edit',
+                text: 'Apakah Anda yakin ingin mengedit data ini?',
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, Edit',
+                cancelButtonText: 'Batal'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    const idBrand = <?= isset($br['id_brand']) ? json_encode($br['id_brand']) : 'null' ?>;
+                    if (idBrand !== null) {
+                        window.location.href = url;
+                    } else {
+                        console.error('id_brand tidak memiliki nilai.');
+                    }
+                }
+            });
+        });
+    });
+</script>
 
 <?= $this->endSection(); ?>

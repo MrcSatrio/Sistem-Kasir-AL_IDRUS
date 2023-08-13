@@ -4,18 +4,20 @@ namespace App\Controllers\KepalaKoperasi\Brand;
 
 use \App\Controllers\BaseController;
 
-class Create extends BaseController
+class Update extends BaseController
 {
     protected $brandModel;
 
-    public function index()
+    public function index($id)
     {
         if (!$this->request->is('post')) {
+            $getBrand = $this->brandModel->find($id);
             $data =
                 [
-                    'title'     => 'Koperasi - Tambah Brand',
+                    'title'     => 'Koperasi - Edit Brand',
+                    'brand'     => $getBrand,
                 ];
-            return view('kepalakoperasi/brand/create', $data);
+            return view('kepalakoperasi/brand/update', $data);
         }
 
         if (!$this->validate($this->brandModel->validationRules)) {
@@ -27,6 +29,7 @@ class Create extends BaseController
 
         $this->brandModel->save(
             [
+                'id_brand' => $id,
                 'nama_brand' => $this->request->getVar('nama_brand'),
                 'produsen_brand' => $this->request->getVar('produsen_brand'),
             ]
