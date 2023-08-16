@@ -31,7 +31,8 @@ $routes->set404Override();
 // route since we don't have to scan directories.
 
 // ------------------------------ Develop Page ------------------------------
-
+// $routes->get('pegawai/insert', 'KepalaKoperasi\Pegawai\Form_pegawai::index');
+// $routes->post('pegawai/insert', 'KepalaKoperasi\Pegawai\Form_pegawai::PegawaiInsert');
 
 // ------------------------------ AUTH ------------------------------
 $routes->get('/', 'Auth\Login::index');
@@ -49,8 +50,15 @@ $routes->group('koperasi', ['filter' => 'role'], function ($routes) {
     $routes->get('brand/create', 'KepalaKoperasi\Brand\Create::index');
     $routes->post('brand/create', 'KepalaKoperasi\Brand\Create::index');
 
-    $routes->get('pegawai/insert', 'KepalaKoperasi\Pegawai\Form_pegawai::index');
-    $routes->post('pegawai/insert', 'KepalaKoperasi\Pegawai\Form_pegawai::index');
+    
+    $routes->get('pegawai/insert', 'KepalaKoperasi\Pegawai\Create::index');
+    $routes->post('pegawai/insert', 'KepalaKoperasi\Pegawai\Create::insert');
+
+    // Pegawai
+
+    $routes->get('member/create', 'KepalaKoperasi\Member\Create::index');
+
+
 
 });
 

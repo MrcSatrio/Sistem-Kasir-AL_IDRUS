@@ -21,13 +21,13 @@ class PegawaiModel extends Model
     ];
 
     protected $validationRules = [
-        'username'        => 'required|regex_match[/^[a-z0-9_.-]+$/]|min_length[5]|max_length[32]|is_unique[pegawai.username]',
-        'password'        => 'required|regex_match[/^[A-Za-z0-9\s\S]+$/]|differs[username]|min_length[8]|max_length[32]',
-        'password_confirm' => 'matches[password]|required_with[password]',
+        'username'        => 'required|regex_match[/^[a-zA-Z0-9_.-]+$/]|min_length[5]|max_length[32]|is_unique[pegawai.username]',
+        'password' => 'required|min_length[8]|max_length[255]',
+        // 'password_confirm' => 'matches[password]|required_with[password]',      
         'nama_pegawai'    => 'required|alpha_space|max_length[32]|is_unique[pegawai.nama_pegawai]',
         'telp_pegawai'    => 'max_length[13]|numeric',
         'alamat_pegawai'  => 'max_length[128]|alpha_numeric_punct',
-        'instansi_pegawai'  => 'max_length[32]|alpha_numeric_space'
+        'instansi_pegawai'  => 'max_length[32]|alpha_numeric_punct'
     ];
     protected $validationMessages = [
         'username' => [
@@ -39,8 +39,6 @@ class PegawaiModel extends Model
         ],
         'password' => [
             'required'      => 'Password tidak boleh kosong',
-            'regex_match'   => 'Password tidak memenuhi aturan',
-            'differs'       => 'Password tidak boleh sama dengan username',
             'min_length'    => 'Karakter tidak boleh kurang dari 8 karakter',
             'max_length'    => 'Karakter tidak boleh lebih dari 32 karakter'
         ],

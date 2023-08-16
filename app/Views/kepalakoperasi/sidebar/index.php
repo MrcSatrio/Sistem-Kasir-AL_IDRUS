@@ -70,7 +70,7 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Manajemen Member:</h6>
                 <a class="collapse-item" href="#">Member Terdaftar</a>
-                <a class="collapse-item" href="#">Tambah Member</a>
+                <a class="collapse-item" href="<?= base_url('koperasi/member/create') ?>">Tambah Member</a>
             </div>
         </div>
     </li>
