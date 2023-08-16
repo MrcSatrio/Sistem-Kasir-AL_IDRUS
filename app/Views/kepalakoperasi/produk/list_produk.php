@@ -9,7 +9,7 @@ $this->section('container'); ?>
 <div class="card shadow mb-4">
 
   <div class="card-body">
-    <table class="table align-middle mb-0 bg-white" id="dataTableProduk">
+    <table class="table align-middle mb-0 bg-white" id="dataTable">
       <thead class="bg-light">
         <tr>
           <th>Name</th>
