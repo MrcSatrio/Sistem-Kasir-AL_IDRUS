@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controllers\KepalaKoperasi\Member;
+namespace App\Controllers\KepalaKoperasi\Siswa;
 
 use \App\Controllers\BaseController;
 
@@ -16,7 +16,7 @@ class Create extends BaseController
             // You can add other fields here based on your table structure
           
         ];
-        return view('kepalakoperasi/member/create', $data);
+        return view('kepalakoperasi/siswa/create', $data);
     }
 
     public function insert()

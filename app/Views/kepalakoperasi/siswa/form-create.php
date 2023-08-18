@@ -1,4 +1,4 @@
-<form action="<?= base_url('koperasi/brand/create') ?>" method="post" class="needs-validation">
+<form action="<?= base_url('koperasi/siswa/create') ?>" method="post" class="needs-validation">
 
     <h5 class="card-title"><strong>Informasi Member</strong></h5>
 

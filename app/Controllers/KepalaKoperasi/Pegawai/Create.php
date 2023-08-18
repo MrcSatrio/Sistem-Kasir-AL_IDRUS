@@ -16,7 +16,7 @@ class Create extends BaseController
             // You can add other fields here based on your table structure
           
         ];
-        return view('kepalakoperasi/pegawai/insert_pegawai', $data);
+        return view('kepalakoperasi/pegawai/create', $data);
     }
 
     public function insert()
@@ -44,7 +44,6 @@ class Create extends BaseController
             'nama_pegawai' => $this->request->getVar('nama_pegawai'),
             'telp_pegawai' => $this->request->getVar('telp_pegawai'),
             'alamat_pegawai' => $this->request->getVar('alamat_pegawai'),
-            'instansi_pegawai' => $this->request->getVar('instansi_pegawai'),
         ];
     
         $this->pegawaiModel->save($pegawaiData);
