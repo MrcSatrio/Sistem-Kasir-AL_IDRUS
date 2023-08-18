@@ -62,8 +62,8 @@ $routes->group('koperasi', ['filter' => 'role'], function ($routes) {
     $routes->post('pegawai/update/(:num)',    'KepalaKoperasi\Pegawai\Update::index/$1');
     //Siswa
     $routes->match(['get', 'post'], 'siswa/create', 'KepalaKoperasi\Siswa\Create::index');
-
-
+    $routes->get('siswa/read',      'KepalaKoperasi\Siswa\Read::index');
+    $routes->delete('siswa/delete/(:num)',  'KepalaKoperasi\Siswa\Delete::index/$1');
 
 });
 
