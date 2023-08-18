@@ -56,7 +56,7 @@
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Manajemen Pegawai:</h6>
-                <a class="collapse-item" href="#">Pegawai Terdaftar</a>
+                <a class="collapse-item" href="<?= base_url('koperasi/pegawai/read') ?>">Pegawai Terdaftar</a>
                 <a class="collapse-item" href="<?= base_url('koperasi/pegawai/insert') ?>">Tambah Pegawai</a>
             </div>
         </div>
@@ -70,7 +70,7 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Manajemen Member:</h6>
                 <a class="collapse-item" href="#">Member Terdaftar</a>
-                <a class="collapse-item" href="#">Tambah Member</a>
+                <a class="collapse-item" href="<?= base_url('koperasi/member/create') ?>">Tambah Member</a>
             </div>
         </div>
     </li>
