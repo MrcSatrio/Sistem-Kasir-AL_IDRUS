@@ -24,7 +24,7 @@ class PegawaiModel extends Model
         'username'        => 'required|regex_match[/^[a-zA-Z0-9_.-]+$/]|min_length[5]|max_length[32]|is_unique[pegawai.username]',
         'password' => 'required|min_length[8]|max_length[255]',
         // 'password_confirm' => 'matches[password]|required_with[password]',      
-        'nama_pegawai'    => 'required|alpha_space|max_length[32]|is_unique[pegawai.nama_pegawai]',
+        'nama_pegawai'    => 'required|alpha_space|max_length[32]',
         'telp_pegawai'    => 'max_length[13]|numeric',
         'alamat_pegawai'  => 'max_length[128]|alpha_numeric_punct',
         // 'instansi_pegawai'  => 'max_length[32]|alpha_numeric_punct'
@@ -49,7 +49,6 @@ class PegawaiModel extends Model
             'required'      => 'Mohon mengisi kolom Nama pegawai',
             'alpha_space'   => 'Kolom harus berupa huruf',
             'max_length'    => 'Karakter tidak boleh lebih dari 32 huruf',
-            'is_unique'     => 'Maaf, pegawai sudah terdaftar',
         ],
         'telp_pegawai' => [
             'numeric'       => 'Kolom harus berupa angka',

@@ -6,52 +6,56 @@ use \App\Controllers\BaseController;
 
 class Create extends BaseController
 {
-    protected $pegawaiModel;
+    protected $customerModel;
+    protected $kartuModel;
 
     public function index()
     {
-        $data =
+        if (!$this->request->is('post')) {
+            $data =
+                [
+                    'title'     => 'Koperasi - Tambah Siswa',
+                    'siswa'     => $this->customerModel
+                                ->join('kartu', 'kartu.id_kartu = customer.id_kartu')
+                                ->where('id_customer', session('id_customer'))
+                                ->first(),
+                    'kartu'     =>  $this->kartuModel->findAll()
+                ];
+            return view('kepalakoperasi/siswa/create', $data);
+        }
+
+        if (!$this->validate($this->customerModel->validationRules)) {
+            session()->setFlashdata('field_errors', $this->validator->listErrors());
+            session()->setFlashdata('field_error.nama_customer', $this->validator->getError('nama_customer'));
+            session()->setFlashdata('field_error.telp_customer', $this->validator->getError('telp_customer'));
+            return redirect()->back()->withInput();
+        }
+
+        if (!$this->validate($this->kartuModel->validationRules)) {
+            session()->setFlashdata('field_errors', $this->validator->listErrors());
+            session()->setFlashdata('field_error.nomor_kartu', $this->validator->getError('nomor_kartu'));
+            session()->setFlashdata('field_error.saldo_kartu', $this->validator->getError('saldo_kartu'));
+            return redirect()->back()->withInput();
+        }
+
+
+        $this->kartuModel->save(
             [
-                'title'     => 'form -> member',
-            // You can add other fields here based on your table structure
-          
-        ];
-        return view('kepalakoperasi/siswa/create', $data);
-    }
+                'nomor_kartu' => $this->request->getVar('nomor_kartu'),
+                'saldo_kartu' => $this->request->getVar('saldo_kartu'),
+            ]
+        );
 
-    public function insert()
-{
-    $validationRules = $this->pegawaiModel->validationRules;
+        $this->customerModel->save(
+            [
+                'id_kartu' => $this->kartuModel->getInsertID(),
+                'nama_customer' => $this->request->getVar('nama_customer'),
+                'telp_customer' => $this->request->getVar('telp_customer'),
+            ]
+        );
 
-    if (!$this->validate($validationRules)) {
-        session()->setFlashdata('break_the_rules', $this->validator->listErrors());
+        session()->setFlashdata('success', 'Data berhasil disimpan.');
         return redirect()->back()->withInput();
     }
-
-    $rawPassword = $this->request->getVar('password');
-    $confirmPassword = $this->request->getVar('password_confirm');
-
-    if ($confirmPassword !== $rawPassword) { // Menggunakan operator !== untuk perbandingan yang ketat
-        session()->setFlashdata('error_lm', 'Password konfirmasi tidak sesuai');
-        return redirect()->back()->withInput();
-    } else {
-        $hashedPassword = password_hash($rawPassword, PASSWORD_DEFAULT);
-
-        $pegawaiData = [
-            'id_role' => $this->request->getVar('id_role'),
-            'username' => $this->request->getVar('username'),
-            'password' => $hashedPassword,
-            'nama_pegawai' => $this->request->getVar('nama_pegawai'),
-            'telp_pegawai' => $this->request->getVar('telp_pegawai'),
-            'alamat_pegawai' => $this->request->getVar('alamat_pegawai'),
-            'instansi_pegawai' => $this->request->getVar('instansi_pegawai'),
-        ];
-    
-        $this->pegawaiModel->save($pegawaiData);
-    
-        session()->setFlashdata('success', 'Data pegawai berhasil ditambahkan.');
-        return redirect()->back()->withInput();
-    }
-}
 
 }

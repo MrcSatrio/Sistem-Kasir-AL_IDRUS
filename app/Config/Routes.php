@@ -58,9 +58,11 @@ $routes->group('koperasi', ['filter' => 'role'], function ($routes) {
     $routes->post('pegawai/insert', 'KepalaKoperasi\Pegawai\Create::insert');
     $routes->get('pegawai/read',      'KepalaKoperasi\Pegawai\Read::index');
     $routes->delete('pegawai/delete/(:num)',  'KepalaKoperasi\Pegawai\Delete::index/$1');
-
+    $routes->get('pegawai/update/(:num)',     'KepalaKoperasi\Pegawai\Update::index/$1');
+    $routes->post('pegawai/update/(:num)',    'KepalaKoperasi\Pegawai\Update::index/$1');
     //Siswa
-    $routes->get('member/create', 'KepalaKoperasi\Siswa\Create::index');
+    $routes->match(['get', 'post'], 'siswa/create', 'KepalaKoperasi\Siswa\Create::index');
+
 
 
 });
