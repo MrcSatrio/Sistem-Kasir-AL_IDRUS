@@ -53,13 +53,15 @@ $routes->group('koperasi', ['filter' => 'role'], function ($routes) {
     $routes->get('brand/update/(:num)',     'KepalaKoperasi\Brand\Update::index/$1');
     $routes->post('brand/update/(:num)',    'KepalaKoperasi\Brand\Update::index/$1');
     $routes->delete('brand/delete/(:num)',  'KepalaKoperasi\Brand\Delete::index/$1');
-    
-    // Pegawai
+
     $routes->get('pegawai/insert', 'KepalaKoperasi\Pegawai\Create::index');
     $routes->post('pegawai/insert', 'KepalaKoperasi\Pegawai\Create::insert');
+    $routes->get('pegawai/read',      'KepalaKoperasi\Pegawai\Read::index');
+    $routes->delete('pegawai/delete/(:num)',  'KepalaKoperasi\Pegawai\Delete::index/$1');
 
     //Siswa
     $routes->get('member/create', 'KepalaKoperasi\Siswa\Create::index');
+
 
 });
 
