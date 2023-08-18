@@ -52,9 +52,6 @@ $routes->group('koperasi', ['filter' => 'role'], function ($routes) {
     $routes->get('brand/update/(:num)',     'KepalaKoperasi\Brand\Update::index/$1');
     $routes->post('brand/update/(:num)',    'KepalaKoperasi\Brand\Update::index/$1');
     $routes->delete('brand/delete/(:num)',  'KepalaKoperasi\Brand\Delete::index/$1');
-
-    $routes->get('pegawai/insert', 'KepalaKoperasi\Pegawai\Form_pegawai::index');
-    $routes->post('pegawai/insert', 'KepalaKoperasi\Pegawai\Form_pegawai::index');
 });
 
 // ------------------------------ KASIR -----------------------------
