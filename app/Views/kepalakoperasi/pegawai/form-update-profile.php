@@ -1,4 +1,4 @@
-<form action="<?= base_url('koperasi/pegawai/update/' . $pegawai['id_pegawai']) ?>" method="post" class="needs-validation">
+<form action="<?= base_url('koperasi/pegawai/update_profile/' . $pegawai['id_pegawai']) ?>" method="post" class="needs-validation">
 
     <h5 class="card-title"><strong>Informasi Pegawai</strong></h5>
             <?php if (session()->has('success')) : ?>

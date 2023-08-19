@@ -40,7 +40,7 @@ $this->section('container'); ?>
             </script>
         <?php endif; ?>
 
-        <?= include('form-update.php') ?>
+        <?= include('form-update-profile.php') ?>
 
     </div>
 </div>

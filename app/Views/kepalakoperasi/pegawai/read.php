@@ -28,8 +28,11 @@
                             <td><?= $pg['telp_pegawai']; ?></td>
                             <td><?= $pg['alamat_pegawai']; ?></td>
                             <td>
-                                <a href="<?= base_url('koperasi/pegawai/update/' . $pg['id_pegawai']) ?>" class="btn btn-sm btn-warning btn-circle update">
-                                    <i class="far fa-edit"></i>
+                                <a href="<?= base_url('koperasi/pegawai/update_profile/' . $pg['id_pegawai']) ?>" class="btn btn-sm btn-warning btn-circle update">
+                                <i class="fas fa-user"></i>
+                                </a>
+                                <a href="<?= base_url('koperasi/pegawai/update_password/' . $pg['id_pegawai']) ?>" class="btn btn-sm btn-warning btn-circle update">
+                                <i class="fas fa-key"></i>
                                 </a>
                                   <a href="<?= base_url('koperasi/pegawai/delete/' . $pg['id_pegawai']) ?>" class="btn btn-sm btn-danger btn-circle delete">
                                     <i class="fas fa-trash"></i>
