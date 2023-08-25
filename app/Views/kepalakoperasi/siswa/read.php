@@ -30,10 +30,10 @@
                             <td><?= $sw['nomor_kartu']; ?></td>
                             <td><?= $sw['saldo_kartu']; ?></td>
                             <td>
-                                <a href="<?= base_url('koperasi/siswa/update/' . $sw['id_customer']) ?>" class="btn btn-sm btn-warning btn-circle update">
+                                <a href="<?= base_url('koperasi/siswa/update_profile/' . $sw['id_customer']) ?>" class="btn btn-sm btn-warning btn-circle update">
                                     <i class="far fa-user"></i>
                                 </a>
-                                <a href="#" class="btn btn-sm btn-warning btn-circle update">
+                                <a href="<?= base_url('koperasi/siswa/update_kartu/' . $sw['id_customer']) ?>" class="btn btn-sm btn-warning btn-circle update">
                                     <i class="fas fa-credit-card"></i>
                                 </a>
                                   <a href="<?= base_url('koperasi/siswa/delete/' . $sw['id_customer']) ?>" class="btn btn-sm btn-danger btn-circle delete">
