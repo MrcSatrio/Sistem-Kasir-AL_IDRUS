@@ -54,6 +54,13 @@ $routes->group('koperasi', ['filter' => 'role'], function ($routes) {
     $routes->post('brand/update/(:num)',    'KepalaKoperasi\Brand\Update::index/$1');
     $routes->delete('brand/delete/(:num)',  'KepalaKoperasi\Brand\Delete::index/$1');
 
+    $routes->get('kategori/create',    'KepalaKoperasi\Kategori\Create::index');
+    $routes->post('kategori/create',    'KepalaKoperasi\Kategori\Create::index');
+    $routes->get('kategori/read',      'KepalaKoperasi\Kategori\Read::index');
+    $routes->get('kategori/update/(:num)',     'KepalaKoperasi\Kategori\Update::index/$1');
+    $routes->post('kategori/update/(:num)',    'KepalaKoperasi\kategori\Update::index/$1');
+    $routes->delete('kategori/delete/(:num)',  'KepalaKoperasi\Kategori\Delete::index/$1');
+
     $routes->get('pegawai/insert', 'KepalaKoperasi\Pegawai\Create::index');
     $routes->post('pegawai/insert', 'KepalaKoperasi\Pegawai\Create::insert');
     $routes->get('pegawai/read',      'KepalaKoperasi\Pegawai\Read::index');

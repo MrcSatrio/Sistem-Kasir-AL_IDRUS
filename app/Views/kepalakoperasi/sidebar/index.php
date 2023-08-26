@@ -41,8 +41,8 @@
                 <a class="collapse-item" href="<?= base_url('koperasi/brand/read') ?>">Brand List</a>
                 <a class="collapse-item" href="<?= base_url('koperasi/brand/create') ?>">Tambah Brand</a>
                 <h6 class="collapse-header">Manajemen Kategori :</h6>
-                <a class="collapse-item" href="#">Kategori List</a>
-                <a class="collapse-item" href="#">Tambah Kategori</a>
+                <a class="collapse-item" href="<?= base_url('koperasi/kategori/read') ?>">Kategori List</a>
+                <a class="collapse-item" href="<?= base_url('koperasi/kategori/create') ?>">Tambah Kategori</a>
             </div>
         </div>
     </li>
