@@ -58,12 +58,14 @@ $routes->group('koperasi', ['filter' => 'role'], function ($routes) {
     $routes->post('pegawai/insert', 'KepalaKoperasi\Pegawai\Create::insert');
     $routes->get('pegawai/read',      'KepalaKoperasi\Pegawai\Read::index');
     $routes->delete('pegawai/delete/(:num)',  'KepalaKoperasi\Pegawai\Delete::index/$1');
+    $routes->match(['get', 'post'], 'pegawai/update_profile/(:num)', 'KepalaKoperasi\Pegawai\Update::UpdateProfile/$1');
+    $routes->match(['get', 'post'], 'pegawai/update_password/(:num)', 'KepalaKoperasi\Pegawai\Update::UpdatePassword/$1');
 
-    // Pegawai
-
-    $routes->get('member/create', 'KepalaKoperasi\Member\Create::index');
-
-
+    //Siswa
+    $routes->match(['get', 'post'], 'siswa/create', 'KepalaKoperasi\Siswa\Create::index');
+    $routes->get('siswa/read',      'KepalaKoperasi\Siswa\Read::index');
+    $routes->delete('siswa/delete/(:num)',  'KepalaKoperasi\Siswa\Delete::index/$1');
+    $routes->match(['get', 'post'], 'siswa/update/(:num)',    'KepalaKoperasi\Siswa\Update::index/$1');
 });
 
 // ------------------------------ KASIR -----------------------------

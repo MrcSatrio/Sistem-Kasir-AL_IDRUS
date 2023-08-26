@@ -3,6 +3,7 @@
 
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <h1 class="h3 mb-0 text-gray-800">Daftar Pegawai</h1>
+    <a href="<?= base_url('koperasi/pegawai/insert') ?>" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">Tambah Pegawai</a>
 </div>
 
 <div class="card shadow mb-4">
@@ -15,21 +16,25 @@
                         <th>Nama Pegawai</th>
                         <th>No Telepon</th>
                         <th>Alamat</th>
-                        <th>Instansi</th>
                         <th style="width: 15%;">Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php $i = 1;
-                    foreach ($pegawai as $br) : ?>
+                    foreach ($pegawai as $pg) : ?>
                         <tr>
                             <td><?= $i++; ?></td>
-                            <td><?= $br['nama_pegawai']; ?></td>
-                            <td><?= $br['telp_pegawai']; ?></td>
-                            <td><?= $br['alamat_pegawai']; ?></td>
-                            <td><?= $br['instansi_pegawai']; ?></td>
+                            <td><?= $pg['nama_pegawai']; ?></td>
+                            <td><?= $pg['telp_pegawai']; ?></td>
+                            <td><?= $pg['alamat_pegawai']; ?></td>
                             <td>
-                                  <a href="<?= base_url('koperasi/pegawai/delete/' . $br['id_pegawai']) ?>" class="btn btn-sm btn-danger btn-circle delete">
+                                <a href="<?= base_url('koperasi/pegawai/update_profile/' . $pg['id_pegawai']) ?>" class="btn btn-sm btn-warning btn-circle update">
+                                <i class="fas fa-user"></i>
+                                </a>
+                                <a href="<?= base_url('koperasi/pegawai/update_password/' . $pg['id_pegawai']) ?>" class="btn btn-sm btn-warning btn-circle update">
+                                <i class="fas fa-key"></i>
+                                </a>
+                                  <a href="<?= base_url('koperasi/pegawai/delete/' . $pg['id_pegawai']) ?>" class="btn btn-sm btn-danger btn-circle delete">
                                     <i class="fas fa-trash"></i>
                                 </a>
                             </td>

@@ -2,7 +2,8 @@
 $this->section('container'); ?>
 
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">Tambah Member</h1>
+    <h1 class="h3 mb-0 text-gray-800">Edit Data Pegawai</h1>
+    <a href="<?= base_url('koperasi/pegawai/read') ?>" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">Pegawai List</a>
 </div>
 
 <!-- Basic Card Example -->
@@ -30,17 +31,16 @@ $this->section('container'); ?>
         <?php if (session()->has('success')) : ?>
             <script>
                 document.addEventListener("DOMContentLoaded", function() {
-                    Swal.fire(
-                        'Success!',
-                        'Data berhasil disimpan',
-                        'success'
-                    )
+                    Swal.fire({
+                        title: 'Success!',
+                        icon: 'success',
+                        text: '<?= session('success') ?>',
+                    });
                 });
             </script>
         <?php endif; ?>
 
-
-        <?= include('form-create.php') ?>
+        <?= include('form-update-profile.php') ?>
 
     </div>
 </div>
