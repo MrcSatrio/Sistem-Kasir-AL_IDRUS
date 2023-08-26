@@ -85,29 +85,9 @@
 
     <!-- Nav Item -  -->
     <li class="nav-item">
-        <a class="nav-link" href="#">
-            <i class="fas fa-fw fa-chart-area"></i>
-            <span>30 Hari Terakhir</span></a>
-    </li>
-
-    <!-- Nav Item -  -->
-    <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="<?= base_url('koperasi/riwayat/read') ?>">
             <i class="fas fa-fw fa-table"></i>
-            <span>14 Hari Terakhir</span></a>
-    </li>
-    <!-- Nav Item -  -->
-    <li class="nav-item">
-        <a class="nav-link" href="#">
-            <i class="fas fa-fw fa-chart-area"></i>
-            <span>7 Hari Terakhir</span></a>
-    </li>
-
-    <!-- Nav Item -  -->
-    <li class="nav-item">
-        <a class="nav-link" href="#">
-            <i class="fas fa-fw fa-table"></i>
-            <span>Hari Ini</span></a>
+            <span>Riwayat Transaksi</span></a>
     </li>
 
     <!-- Divider -->
