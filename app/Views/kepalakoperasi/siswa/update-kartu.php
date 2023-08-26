@@ -2,7 +2,7 @@
 $this->section('container'); ?>
 
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">Edit Data Siswa</h1>
+    <h1 class="h3 mb-0 text-gray-800">Edit Kartu Siswa</h1>
     <a href="<?= base_url('koperasi/siswa/read') ?>" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">Pegawai List</a>
 </div>
 
@@ -40,7 +40,7 @@ $this->section('container'); ?>
             </script>
         <?php endif; ?>
 
-        <?= include('form-update.php') ?>
+        <?= include('form-update-kartu.php') ?>
 
     </div>
 </div>

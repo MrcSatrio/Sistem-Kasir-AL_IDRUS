@@ -65,7 +65,8 @@ $routes->group('koperasi', ['filter' => 'role'], function ($routes) {
     $routes->match(['get', 'post'], 'siswa/create', 'KepalaKoperasi\Siswa\Create::index');
     $routes->get('siswa/read',      'KepalaKoperasi\Siswa\Read::index');
     $routes->delete('siswa/delete/(:num)',  'KepalaKoperasi\Siswa\Delete::index/$1');
-    $routes->match(['get', 'post'], 'siswa/update/(:num)',    'KepalaKoperasi\Siswa\Update::index/$1');
+    $routes->match(['get', 'post'], 'siswa/update_profile/(:num)',    'KepalaKoperasi\Siswa\Update::UpdateProfile/$1');
+    $routes->match(['get', 'post'], 'siswa/update_kartu/(:num)',    'KepalaKoperasi\Siswa\Update::UpdateKartu/$1');
 });
 
 // ------------------------------ KASIR -----------------------------

@@ -21,12 +21,16 @@ class Create extends BaseController
 
     public function insert()
 {
-    $validationRules = $this->pegawaiModel->validationRules;
-
-    if (!$this->validate($validationRules)) {
-        session()->setFlashdata('break_the_rules', $this->validator->listErrors());
+    if (!$this->validate($this->pegawaiModel->validationRules)) {
+        session()->setFlashdata('field_errors', $this->validator->listErrors());
+        session()->setFlashdata('field_error.username', $this->validator->getError('username'));
+        session()->setFlashdata('field_error.password', $this->validator->getError('password'));
+        session()->setFlashdata('field_error.nama_pegawai', $this->validator->getError('nama_pegawai'));
+        session()->setFlashdata('field_error.telp_pegawai', $this->validator->getError('telp_pegawai'));
+        session()->setFlashdata('field_error.alamat_pegawai', $this->validator->getError('alamat_pegawai'));
         return redirect()->back()->withInput();
     }
+
 
     $rawPassword = $this->request->getVar('password');
     $confirmPassword = $this->request->getVar('password_confirm');
