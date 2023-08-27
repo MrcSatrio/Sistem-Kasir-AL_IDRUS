@@ -2,8 +2,8 @@
 $this->section('container'); ?>
 
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">Tambah Siswa</h1>
-    <a href="<?= base_url('koperasi/siswa/read') ?>" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">List Siswa</a>
+    <h1 class="h3 mb-0 text-gray-800">Tambah Customer</h1>
+    <a href="<?= base_url('koperasi/siswa/read') ?>" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">List Customer</a>
 </div>
 
 <!-- Basic Card Example -->

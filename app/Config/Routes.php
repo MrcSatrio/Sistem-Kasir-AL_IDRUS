@@ -76,6 +76,7 @@ $routes->group('koperasi', ['filter' => 'role'], function ($routes) {
     $routes->delete('siswa/delete/(:num)',  'KepalaKoperasi\Siswa\Delete::index/$1');
     $routes->match(['get', 'post'], 'siswa/update_profile/(:num)',    'KepalaKoperasi\Siswa\Update::UpdateProfile/$1');
     $routes->match(['get', 'post'], 'siswa/update_kartu/(:num)',    'KepalaKoperasi\Siswa\Update::UpdateKartu/$1');
+    $routes->match(['get', 'post'], 'siswa/update_saldo/(:num)',    'KepalaKoperasi\Siswa\Update::UpdateSaldo/$1');
 });
 
 // ------------------------------ KASIR -----------------------------
