@@ -60,6 +60,13 @@ $routes->group('koperasi', ['filter' => 'role'], function ($routes) {
 // ------------------------------ KASIR -----------------------------
 $routes->group('kasir', ['filter' => 'role'], function ($routes) {
     $routes->get('dashboard', 'Kasir\Dashboard::index');
+
+    $routes->post('get-produk-row', 'Kasir\Get\Produk::index');
+    $routes->post('get-member-row', 'Kasir\Get\Member::index');
+
+    $routes->post('transaksi/checkout', 'Kasir\Transaksi\Checkout::index');
+    $routes->post('transaksi/topup', 'Kasir\Transaksi\Topup::index');
+    $routes->get('checkout/print', 'Kasir\Transaksi\ReceiptPrint::index');
 });
 
 /*

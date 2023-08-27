@@ -17,7 +17,7 @@ class KartuModel extends Model
 
     protected $validationRules = [
         'nomor_kartu'        => 'required|numeric|max_length[10]|is_unique[kartu.nomor_kartu]|greater_than_equal_to[0]',
-        'saldo_kartu'     => 'integer|greater_than_equal_to[0]'
+        'saldo_kartu'     => 'integer'
     ];
     protected $validationMessages = [
         'nomor_kartu' => [
@@ -28,8 +28,7 @@ class KartuModel extends Model
             'greater_than_equal_to' => 'Minimum angka adalah 0'
         ],
         'saldo_kartu' => [
-            'integer' => 'Kolom harus berupa angka',
-            'greater_than_equal_to' => 'Saldo mungkin kurang, mohon cek saldo anda'
+            'integer' => 'Kolom harus berupa angka'
         ],
     ];
 }

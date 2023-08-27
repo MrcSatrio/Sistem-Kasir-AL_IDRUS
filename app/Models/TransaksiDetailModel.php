@@ -6,7 +6,7 @@ use CodeIgniter\Model;
 
 class TransaksiDetailModel extends Model
 {
-    protected $table      = 'transaksi';
+    protected $table      = 'transaksi_detail';
     protected $primaryKey = 'id_transaksi';
 
     protected $useAutoIncrement = false;

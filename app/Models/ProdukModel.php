@@ -7,12 +7,12 @@ use CodeIgniter\Model;
 class ProdukModel extends Model
 {
     protected $table      = 'produk';
-    protected $primaryKey = 'bar_produk';
+    protected $primaryKey = 'qr_produk';
 
     protected $useAutoIncrement = false;
 
     protected $allowedFields = [
-        'bar_produk',
+        'qr_produk',
         'id_kategori',
         'id_brand',
         'nama_produk',
@@ -22,7 +22,7 @@ class ProdukModel extends Model
     ];
 
     protected $validationRules = [
-        'bar_produk'        => 'required|regex_match[/^\d{13,14}$/]',
+        'qr_produk'        => 'required|regex_match[/^\d{13,14}$/]',
         'id_kategori'        => 'required',
         'id_brand'        => 'required',
         'nama_produk'        => 'required|alpha_numeric_punct|max_length[32]|is_unique[produk.nama_produk]',
