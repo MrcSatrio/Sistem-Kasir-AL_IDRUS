@@ -53,13 +53,13 @@ $this->section('container'); ?>
                             <div class="form-group row">
                                 <label for="inputKasir" class="col-sm-2 col-form-label">Kasir</label>
                                 <div class="col-sm-3">
-                                    <input type="text" class="form-control form-control-sm" name="nama_kasir" id="inputKasir" value="<?= session('nama') ?>">
+                                    <input type="text" class="form-control form-control-sm" name="nama_kasir" id="inputKasir" value="<?= session('nama') ?>"disabled>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="input" class="col-sm-2 col-form-label">Tanggal</label>
                                 <div class="col-sm-3">
-                                    <input type="text" class="form-control form-control-sm" id="inputKasir" value="<?= date('d F Y', strtotime(date('d-m-Y'))) ?>">
+                                    <input type="text" class="form-control form-control-sm" id="inputKasir" value="<?= date('d F Y', strtotime(date('d-m-Y'))) ?>"disabled>
                                 </div>
                             </div>
                         </div>
