@@ -17,7 +17,7 @@ class CustomerModel extends Model
     ];
 
     protected $validationRules = [
-        'nama_customer'        => 'required|alpha_space|max_length[32]|is_unique[customer.nama_customer]',
+        'nama_customer'        => 'required|alpha_space|max_length[32]',
         'telp_customer'     => 'max_length[13]|numeric'
     ];
     protected $validationMessages = [
@@ -25,7 +25,6 @@ class CustomerModel extends Model
             'required' => 'Mohon mengisi kolom Nama customer',
             'alpha_space' => 'Kolom harus berupa huruf',
             'max_length' => 'Karakter tidak boleh lebih dari 32 huruf',
-            'is_unique' => 'Maaf, customer sudah terdaftar',
         ],
         'telp_customer' => [
             'numeric' => 'Kolom harus berupa angka',

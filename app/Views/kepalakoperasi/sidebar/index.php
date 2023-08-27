@@ -41,8 +41,8 @@
                 <a class="collapse-item" href="<?= base_url('koperasi/brand/read') ?>">Brand List</a>
                 <a class="collapse-item" href="<?= base_url('koperasi/brand/create') ?>">Tambah Brand</a>
                 <h6 class="collapse-header">Manajemen Kategori :</h6>
-                <a class="collapse-item" href="#">Kategori List</a>
-                <a class="collapse-item" href="#">Tambah Kategori</a>
+                <a class="collapse-item" href="<?= base_url('koperasi/kategori/read') ?>">Kategori List</a>
+                <a class="collapse-item" href="<?= base_url('koperasi/kategori/create') ?>">Tambah Kategori</a>
             </div>
         </div>
     </li>
@@ -56,7 +56,7 @@
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Manajemen Pegawai:</h6>
-                <a class="collapse-item" href="#">Pegawai Terdaftar</a>
+                <a class="collapse-item" href="<?= base_url('koperasi/pegawai/read') ?>">Pegawai Terdaftar</a>
                 <a class="collapse-item" href="<?= base_url('koperasi/pegawai/insert') ?>">Tambah Pegawai</a>
             </div>
         </div>
@@ -64,13 +64,13 @@
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapseUtilities">
             <i class="far fa-id-card"></i>
-            <span>Member</span>
+            <span>Member Siswa</span>
         </a>
         <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Manajemen Member:</h6>
-                <a class="collapse-item" href="#">Member Terdaftar</a>
-                <a class="collapse-item" href="#">Tambah Member</a>
+                <a class="collapse-item" href="<?= base_url('koperasi/siswa/read') ?>">Member Terdaftar</a>
+                <a class="collapse-item" href="<?= base_url('koperasi/siswa/create') ?>">Tambah Member</a>
             </div>
         </div>
     </li>
@@ -85,29 +85,9 @@
 
     <!-- Nav Item -  -->
     <li class="nav-item">
-        <a class="nav-link" href="#">
-            <i class="fas fa-fw fa-chart-area"></i>
-            <span>30 Hari Terakhir</span></a>
-    </li>
-
-    <!-- Nav Item -  -->
-    <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="<?= base_url('koperasi/riwayat/read') ?>">
             <i class="fas fa-fw fa-table"></i>
-            <span>14 Hari Terakhir</span></a>
-    </li>
-    <!-- Nav Item -  -->
-    <li class="nav-item">
-        <a class="nav-link" href="#">
-            <i class="fas fa-fw fa-chart-area"></i>
-            <span>7 Hari Terakhir</span></a>
-    </li>
-
-    <!-- Nav Item -  -->
-    <li class="nav-item">
-        <a class="nav-link" href="#">
-            <i class="fas fa-fw fa-table"></i>
-            <span>Hari Ini</span></a>
+            <span>Riwayat Transaksi</span></a>
     </li>
 
     <!-- Divider -->
