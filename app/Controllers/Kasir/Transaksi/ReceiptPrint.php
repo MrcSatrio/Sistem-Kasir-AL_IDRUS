@@ -20,7 +20,8 @@ class ReceiptPrint extends BaseController
 
             $printer->text("        Pondok Pesantren\n");
             $printer->text("      AL-IDRUS  KALIKIDANG\n\n");
-            $printer->text("No. Transaksi: " . $receiptData['no_transaksi'] . "\n");
+            $randomLetters = chr(rand(65, 90)) . chr(rand(65, 90)) . chr(rand(65, 90)); // Menghasilkan 3 huruf acak
+            $printer->text("No. Transaksi: INV" . $receiptData['no_transaksi'] . $randomLetters . "\n");
             $printer->text("Tgl.Transaksi: " . date('d F Y', strtotime(date('d-m-Y'))) . "\n");
             $printer->text("Kasir        : " . $receiptData['kasir'] . "\n");
             $printer->text("Customer     : " . $receiptData['customer'] . "\n");
