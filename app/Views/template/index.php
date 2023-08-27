@@ -103,6 +103,7 @@
 
     <!-- Bootstrap core JavaScript-->
     <script src="<?= base_url() ?>/assets/vendor/jquery/jquery.min.js"></script>
+
     <script src="<?= base_url() ?>/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Core plugin JavaScript-->
@@ -123,6 +124,39 @@
 
     <!-- sweetalert2 js -->
     <script src="<?= base_url() ?>/assets/js/sweetalert2.min.js"></script>
+
+
+<style>
+    /* Style untuk container */
+    .filter-container {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 20px;
+    }
+
+    /* Style untuk input date */
+    #dateFrom,
+    #dateTo {
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    /* Style untuk tombol filter */
+    #filterButton {
+        padding: 8px 15px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    #filterButton:hover {
+        background-color: #0056b3;
+    }
+</style>
 
 </body>
 

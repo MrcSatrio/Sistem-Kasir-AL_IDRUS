@@ -36,7 +36,7 @@ class Create extends BaseController
     $confirmPassword = $this->request->getVar('password_confirm');
 
     if ($confirmPassword !== $rawPassword) { // Menggunakan operator !== untuk perbandingan yang ketat
-        session()->setFlashdata('error_lm', 'Password konfirmasi tidak sesuai');
+        session()->setFlashdata('field_error.password_confirm', 'Password konfirmasi tidak sesuai');
         return redirect()->back()->withInput();
     } else {
         $hashedPassword = password_hash($rawPassword, PASSWORD_DEFAULT);

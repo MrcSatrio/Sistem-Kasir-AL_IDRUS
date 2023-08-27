@@ -1,11 +1,12 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
+    <a class="sidebar-brand d-flex align-items-center justify-content-center"
+        href="<?= base_url('koperasi/dashboard') ?>">
         <!-- <div class="sidebar-brand-icon rotate-n-15">
             <i class="fas fa-laugh-wink"></i>
         </div> -->
-        <div class="sidebar-brand-text mx-3"><?= session('instansi') ?></div>
+        <div class="sidebar-brand-text mx-3">AL-IDRUS</div>
     </a>
 
     <!-- Divider -->
@@ -42,8 +43,8 @@
                 <a class="collapse-item" href="<?= base_url('koperasi/brand/read') ?>">Brand List</a>
                 <a class="collapse-item" href="<?= base_url('koperasi/brand/create') ?>">Tambah Brand</a>
                 <h6 class="collapse-header">Manajemen Kategori :</h6>
-                <a class="collapse-item" href="#">Kategori List</a>
-                <a class="collapse-item" href="#">Tambah Kategori</a>
+                <a class="collapse-item" href="<?= base_url('koperasi/kategori/read') ?>">Kategori List</a>
+                <a class="collapse-item" href="<?= base_url('koperasi/kategori/create') ?>">Tambah Kategori</a>
             </div>
         </div>
     </li>
@@ -67,7 +68,7 @@
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true"
             aria-controls="collapseUtilities">
             <i class="far fa-id-card"></i>
-            <span>Member Siswa</span>
+            <span>Member Customer</span>
         </a>
         <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
@@ -88,8 +89,8 @@
 
     <!-- Nav Item -  -->
     <li class="nav-item">
-        <a class="nav-link" href="<?= base_url('koperasi/riwayat') ?>">
-            <i class="fas fa-fw fa-chart-area"></i>
+        <a class="nav-link" href="<?= base_url('koperasi/riwayat/read') ?>">
+            <i class="fas fa-fw fa-table"></i>
             <span>Riwayat Transaksi</span></a>
     </li>
 

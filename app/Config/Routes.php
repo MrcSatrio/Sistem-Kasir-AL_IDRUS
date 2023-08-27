@@ -54,6 +54,13 @@ $routes->group('koperasi', ['filter' => 'role'], function ($routes) {
     $routes->post('brand/update/(:num)',    'KepalaKoperasi\Brand\Update::index/$1');
     $routes->delete('brand/delete/(:num)',  'KepalaKoperasi\Brand\Delete::index/$1');
 
+    $routes->get('kategori/create',    'KepalaKoperasi\Kategori\Create::index');
+    $routes->post('kategori/create',    'KepalaKoperasi\Kategori\Create::index');
+    $routes->get('kategori/read',      'KepalaKoperasi\Kategori\Read::index');
+    $routes->get('kategori/update/(:num)',     'KepalaKoperasi\Kategori\Update::index/$1');
+    $routes->post('kategori/update/(:num)',    'KepalaKoperasi\kategori\Update::index/$1');
+    $routes->delete('kategori/delete/(:num)',  'KepalaKoperasi\Kategori\Delete::index/$1');
+
     $routes->get('pegawai/insert', 'KepalaKoperasi\Pegawai\Create::index');
     $routes->post('pegawai/insert', 'KepalaKoperasi\Pegawai\Create::insert');
     $routes->get('pegawai/read',      'KepalaKoperasi\Pegawai\Read::index');
@@ -61,17 +68,27 @@ $routes->group('koperasi', ['filter' => 'role'], function ($routes) {
     $routes->match(['get', 'post'], 'pegawai/update_profile/(:num)', 'KepalaKoperasi\Pegawai\Update::UpdateProfile/$1');
     $routes->match(['get', 'post'], 'pegawai/update_password/(:num)', 'KepalaKoperasi\Pegawai\Update::UpdatePassword/$1');
 
+    $routes->get('riwayat/read', 'KepalaKoperasi\Transaksi\Read::index');
+
     //Siswa
     $routes->match(['get', 'post'], 'siswa/create', 'KepalaKoperasi\Siswa\Create::index');
     $routes->get('siswa/read',      'KepalaKoperasi\Siswa\Read::index');
     $routes->delete('siswa/delete/(:num)',  'KepalaKoperasi\Siswa\Delete::index/$1');
     $routes->match(['get', 'post'], 'siswa/update_profile/(:num)',    'KepalaKoperasi\Siswa\Update::UpdateProfile/$1');
     $routes->match(['get', 'post'], 'siswa/update_kartu/(:num)',    'KepalaKoperasi\Siswa\Update::UpdateKartu/$1');
+    $routes->match(['get', 'post'], 'siswa/update_saldo/(:num)',    'KepalaKoperasi\Siswa\Update::UpdateSaldo/$1');
 });
 
 // ------------------------------ KASIR -----------------------------
 $routes->group('kasir', ['filter' => 'role'], function ($routes) {
     $routes->get('dashboard', 'Kasir\Dashboard::index');
+
+    $routes->post('get-produk-row', 'Kasir\Get\Produk::index');
+    $routes->post('get-member-row', 'Kasir\Get\Member::index');
+
+    $routes->post('transaksi/checkout', 'Kasir\Transaksi\Checkout::index');
+    $routes->post('transaksi/topup', 'Kasir\Transaksi\Topup::index');
+    $routes->get('checkout/print', 'Kasir\Transaksi\ReceiptPrint::index');
 });
 
 /*

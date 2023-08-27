@@ -1,0 +1,12 @@
+@font-face {
+    font-family: 'Nunito';
+    src: url('../font/XRXV3I6Li01BKofINeaB.woff2') format('woff2');
+    /* tambahkan format font lain jika diperlukan */
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Gunakan font yang sudah diatur */
+body {
+    font-family: 'Nunito', sans-serif;
+}
