@@ -28,7 +28,8 @@
 
     <!-- Nav Item - Pages Collapse Menu -->
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
+            aria-controls="collapseTwo">
             <i class="fas fa-tags"></i>
             <span>Produk</span>
         </a>
@@ -49,7 +50,8 @@
 
     <!-- Nav Item - Utilities Collapse Menu -->
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+            aria-expanded="true" aria-controls="collapseUtilities">
             <i class="fas fa-user-tie"></i>
             <span>Pegawai</span>
         </a>
@@ -62,7 +64,8 @@
         </div>
     </li>
     <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapseUtilities">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true"
+            aria-controls="collapseUtilities">
             <i class="far fa-id-card"></i>
             <span>Member Siswa</span>
         </a>
@@ -85,29 +88,9 @@
 
     <!-- Nav Item -  -->
     <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="<?= base_url('koperasi/riwayat') ?>">
             <i class="fas fa-fw fa-chart-area"></i>
-            <span>30 Hari Terakhir</span></a>
-    </li>
-
-    <!-- Nav Item -  -->
-    <li class="nav-item">
-        <a class="nav-link" href="#">
-            <i class="fas fa-fw fa-table"></i>
-            <span>14 Hari Terakhir</span></a>
-    </li>
-    <!-- Nav Item -  -->
-    <li class="nav-item">
-        <a class="nav-link" href="#">
-            <i class="fas fa-fw fa-chart-area"></i>
-            <span>7 Hari Terakhir</span></a>
-    </li>
-
-    <!-- Nav Item -  -->
-    <li class="nav-item">
-        <a class="nav-link" href="#">
-            <i class="fas fa-fw fa-table"></i>
-            <span>Hari Ini</span></a>
+            <span>Riwayat Transaksi</span></a>
     </li>
 
     <!-- Divider -->
