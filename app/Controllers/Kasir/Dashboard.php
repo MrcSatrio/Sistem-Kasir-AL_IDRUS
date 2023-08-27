@@ -11,6 +11,7 @@ class Dashboard extends BaseController
         $data =
             [
                 'title' => 'Koperasi - Dashboard',
+                // 'customer' => $this->customerModel->findAll(),
             ];
         return view('kasir/dashboard', $data);
     }

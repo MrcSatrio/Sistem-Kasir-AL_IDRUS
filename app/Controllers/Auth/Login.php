@@ -42,15 +42,10 @@ class Login extends BaseController
             } elseif ($user['id_role'] == 2) {
                 return redirect()->to('/kasir/dashboard');
             } else {
-                // Role tidak dikenali, Anda dapat menambahkan logika lain sesuai kebutuhan
-                // Misalnya, mengarahkan ke halaman default atau menampilkan pesan kesalahan.
                 return redirect()->to('/');
             }
-            // End Memeriksa role Pengguna
         } else {
-            // $data['error'] = 'Username atau Password Salah';
-            // return view('/', $data);
-            session()->setFlashdata('gagal_login', 'No users found.');
+            session()->setFlashdata('gagal', 'No users found.');
             return redirect()->back()->withInput();
         }
     }
