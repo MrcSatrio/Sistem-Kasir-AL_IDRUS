@@ -69,6 +69,7 @@ $routes->group('koperasi', ['filter' => 'role'], function ($routes) {
     $routes->match(['get', 'post'], 'pegawai/update_password/(:num)', 'KepalaKoperasi\Pegawai\Update::UpdatePassword/$1');
 
     $routes->get('riwayat/read', 'KepalaKoperasi\Transaksi\Read::index');
+    $routes->get('riwayat/detail/(:num)', 'KepalaKoperasi\Transaksi\Detail::index/$1');
 
     //Siswa
     $routes->match(['get', 'post'], 'siswa/create', 'KepalaKoperasi\Siswa\Create::index');

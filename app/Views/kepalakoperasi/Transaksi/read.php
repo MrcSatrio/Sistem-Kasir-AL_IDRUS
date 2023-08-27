@@ -40,8 +40,8 @@
                             <td>Rp <?= number_format($tr['total_transaksi'], 0, ',', '.'); ?></td>
                             <td><?= $tr['created_at']; ?></td>
                             <td>
-                                <a href="<?= base_url('koperasi/siswa/update_profile/' . $tr['id_transaksi']) ?>" class="btn btn-sm btn-warning btn-circle update">
-                                    <i class="far fa-user"></i>
+                                <a href="<?= base_url('koperasi/riwayat/detail/' . $tr['id_transaksi']) ?>" class="btn btn-sm btn-success btn-circle update">
+                                    <i class="fas fa-info"></i>
                                 </a>
                             </td>
                         </tr>
