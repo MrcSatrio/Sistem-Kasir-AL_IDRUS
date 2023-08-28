@@ -45,7 +45,8 @@ $routes->group('koperasi', ['filter' => 'role'], function ($routes) {
     $routes->get('dashboard', 'KepalaKoperasi\Dashboard::index');
     $routes->get('produk/create', 'KepalaKoperasi\Produk\Create::index');
     $routes->post('produk/create', 'KepalaKoperasi\Produk\Create::index');
-    $routes->get('produk/list', 'KepalaKoperasi\Produk\ProdukList::index');
+    $routes->get('produk/list', 'KepalaKoperasi\Produk\Read::index');
+    $routes->delete('produk/delete/(:num)',  'KepalaKoperasi\Produk\Delete::index/$1');
 
     $routes->get('brand/create',    'KepalaKoperasi\Brand\Create::index');
     $routes->post('brand/create',   'KepalaKoperasi\Brand\Create::index');
