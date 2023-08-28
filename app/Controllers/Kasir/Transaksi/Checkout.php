@@ -20,7 +20,7 @@ class Checkout extends BaseController
         $harga_produk = $this->request->getVar('harga_produk[]');
         $jumlah_transaksi = $this->request->getVar('jumlah_transaksi[]');
 
-        if (!empty($this->request->getVar('kembalian_transaksi'))) {
+        if (!empty($this->request->getVar('kembalian_transaksi')) || $this->request->getVar('kembalian_transaksi') == 0) {
             $id_customer = null;
             $nama_customer = null;
             $metode_bayar_transaksi = "cash";
