@@ -46,7 +46,6 @@ $this->section('container'); ?>
                 </tbody>
             </table>
         </div>
-
     </div>
 </div>
 
@@ -116,7 +115,7 @@ $this->section('container'); ?>
                 cancelButtonText: 'Batal'
             }).then((result) => {
                 if (result.isConfirmed) {
-                    const idBrand = <?= isset($br['id_brand']) ? json_encode($br['id_brand']) : 'null' ?>;
+                    const idBrand = <?= isset($pr['qr_produk']) ? json_encode($pr['qr_produk']) : 'null' ?>;
                     if (idBrand !== null) {
                         window.location.href = url;
                     } else {

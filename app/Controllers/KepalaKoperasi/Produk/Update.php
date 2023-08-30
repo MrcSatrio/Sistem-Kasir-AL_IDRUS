@@ -2,46 +2,66 @@
 
 namespace App\Controllers\KepalaKoperasi\Produk;
 
-use \App\Controllers\BaseController;
+use App\Controllers\BaseController;
 
 class Update extends BaseController
 {
     protected $produkModel;
+    protected $kategoriModel;
+    protected $brandModel;
 
     public function index($id)
-{
-    if (!$this->request->is('post')) {
-        $getProduk = $this->produkModel
-            ->select('produk.*, kategori.nama_kategori, brand.nama_brand')
+    {
+        // Periksa jika permintaan bukan metode POST
+        if (!$this->request->is('post')) {
+            $getproduk = $this->produkModel
             ->join('kategori', 'kategori.id_kategori = produk.id_kategori')
-            ->join('brand', 'brand.id_brand = produk.id_brand')
-            ->where('produk.qr_produk', $id)
-            ->first();
-
-        $data = [
-            'title' => 'Koperasi - Edit Produk',
-            'produk' => $getProduk,
+            ->find($id);
+            $getkategori = $this->kategoriModel->findAll();
+            $getbrand = $this->brandModel->findAll();
+            $data = [
+                'title' => 'Koperasi - Edit Kategori',
+                'produk' => $getproduk,
+                'kategoriList' => $getkategori,
+                'brandList' => $getbrand
+            ];
+            return view('kepalakoperasi/produk/update', $data);
+        }
+        
+        // Aturan validasi hanya untuk 'harga_produk'
+        $rules = [
+            'harga_produk' => 'required|greater_than_equal_to[0]',
+            'id_kategori' => 'required',
+            'id_brand' => 'required',
+            'id_brand' => 'required',
+            'nama_produk' => 'required|alpha_numeric_punct|max_length[32]'
         ];
 
-        return view('kepalakoperasi/produk/update', $data);
-        }
-
-        if (!$this->validate($this->produkModel->validationRules)) {
+        if (!$this->validate($rules)) {
             session()->setFlashdata('field_errors', $this->validator->listErrors());
-            session()->setFlashdata('field_error.qr_produk', $this->validator->getError('qr_produk'));
-            session()->setFlashdata('field_error.produsen_brand', $this->validator->getError('produsen_brand'));
-            session()->setFlashdata('field_error.harga_produk', $this->validator->getError('harga_produk'));
-            session()->setFlashdata('field_error.nama_produk', $this->validator->getError('nama_produk'));
+            session()->setFlashdata('field_errors.harga_produk', $this->validator->getError('harga_produk'));
+            session()->setFlashdata('field_errors.id_kategori', $this->validator->getError('id_kategori'));
+            session()->setFlashdata('field_errors.id_brand', $this->validator->getError('id_brand'));
+            session()->setFlashdata('field_errors.nama_produk', $this->validator->getError('nama_produk'));
             return redirect()->back()->withInput();
         }
 
-        $this->produkModel->save(
-            [
-                'qr_produk' => $id,
-                'harga_produk' => $this->request->getVar('harga_produk'),
-            ]
-        );
+        // Simpan perubahan pada produk
+        $newKategori = $this->request->getVar('id_kategori');
+        $newHarga = $this->request->getVar('harga_produk');
+        $newBrand = $this->request->getVar('id_brand');
+        $newNama = $this->request->getVar('nama_produk');
+        $dataToUpdate = [
+            'harga_produk' => $newHarga,
+            'id_kategori' => $newKategori,
+            'id_brand' => $newBrand,
+            'nama_produk' => $newNama
+        ];
+        
+        $this->produkModel->update($id, $dataToUpdate);
+        
 
+        // Simpan pesan sukses dalam session
         session()->setFlashdata('success', 'Data berhasil disimpan.');
         return redirect()->back()->withInput();
     }

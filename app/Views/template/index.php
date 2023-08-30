@@ -35,8 +35,6 @@
         <?php
         if (session('id_role') === '1') {
             echo $this->include('kepalakoperasi/sidebar/index');
-        } else {
-            echo $this->include('kasir/sidebar/index');
         }
         ?>
 

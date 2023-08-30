@@ -28,7 +28,7 @@
                             <td><?= $sw['nama_customer']; ?></td>
                             <td><?= $sw['telp_customer']; ?></td>
                             <td><?= $sw['nomor_kartu']; ?></td>
-                            <td><?= $sw['saldo_kartu']; ?></td>
+                            <td>Rp.<?= number_format($sw['saldo_kartu']); ?></td>
                             <td>
                                 <a href="<?= base_url('koperasi/siswa/update_profile/' . $sw['id_customer']) ?>" class="btn btn-sm btn-primary btn-circle profile">
                                     <i class="far fa-user"></i>
