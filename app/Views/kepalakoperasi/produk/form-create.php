@@ -1,5 +1,14 @@
 <form action="<?= base_url('koperasi/produk/create') ?>" method="post">
-
+<?php if (session()->has('success')) : ?>
+            <div class="alert alert-success">
+                <?= session('success') ?>
+            </div>
+        <?php endif; ?>
+        <?php if (session()->has('break_the_rules')) : ?>
+            <div class="alert alert-danger">
+                <?= session('break_the_rules') ?>
+            </div>
+        <?php endif; ?>
     <h5 class="card-title"><strong>Bar Code Produk</strong></h5>
 
     <div class="input-group mb-3">
@@ -7,7 +16,7 @@
             <button class="btn btn-outline-primary" type="button" id="barcode-scan">Scan</button>
         </div>
         <input type="text" class="form-control" placeholder="Tekan 'Scan' disamping dan mulai untuk membaca barcode dengan scanner" aria-label="Example text with button addon" aria-describedby="button-addon1" readonly>
-        <input type="hidden" name="bar_produk" id="bar_produk">
+        <input type="hidden" name="qr_produk" id="qr_produk">
     </div>
 
     <h5 class="card-title"><strong>Informasi Produk</strong></h5>
@@ -69,7 +78,7 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text">Rp</span>
                 </div>
-                <input type="text" class="form-control" placeholder="9.900" name="harga_produk" oninput="formatNumber(this)">
+                <input type="text" class="form-control" placeholder="9.900" name="harga_produk">
             </div>
         </div>
     </div>
@@ -77,11 +86,6 @@
 </form>
 <script>
     // format titik pada harga produk
-    function formatNumber(input) {
-        let inputValue = input.value.replace(/\./g, '');
-        inputValue = inputValue.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
-        input.value = inputValue;
-    }
 
     document.getElementById('barcode-scan').addEventListener('click', function() {
         Swal.fire({
@@ -93,7 +97,7 @@
             showCancelButton: true,
             preConfirm: (inputValue) => {
                 if (inputValue) {
-                    document.getElementById('bar_produk').value = inputValue;
+                    document.getElementById('qr_produk').value = inputValue;
                 }
             }
         });

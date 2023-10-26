@@ -38,27 +38,18 @@ class Create extends BaseController
             return redirect()->back()->withInput();
         }
 
-        d(
-            [
-                $this->request->getVar('bar_produk'),
-                $this->request->getVar('id_brand'),
-                $this->request->getVar('id_kategori'),
-                $this->request->getVar('nama_produk'),
-                $this->request->getVar('uom_produk'),
-                $this->request->getVar('harga_produk'),
-            ]
-        );
 
-        // sengaja di komen biar ga masuk database
-        // $this->produkModel->save(
-        //     [
-        //         $this->request->getVar('bar_produk'),
-        //         $this->request->getVar('id_brand'),
-        //         $this->request->getVar('id_kategori'),
-        //         $this->request->getVar('nama_produk'),
-        //         $this->request->getVar('uom_produk'),
-        //         $this->request->getVar('harga_produk'),
-        //     ]
-        // );
+    $this->produkModel->save(
+            [
+                'qr_produk' => $this->request->getVar('qr_produk'),
+                'id_brand' => $this->request->getVar('id_brand'),
+                'id_kategori'=>$this->request->getVar('id_kategori'),
+                'nama_produk'=>$this->request->getVar('nama_produk'),
+                'uom_produk'=> $this->request->getVar('uom_produk'),
+                'harga_produk'=>$this->request->getVar('harga_produk'),
+            ]
+         );
+         session()->setFlashdata('success', 'Data berhasil disimpan.');
+        return redirect()->back()->withInput();
     }
 }

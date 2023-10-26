@@ -14,7 +14,7 @@ class Create extends BaseController
         if (!$this->request->is('post')) {
             $data =
                 [
-                    'title'     => 'Koperasi - Tambah Siswa',
+                    'title'     => 'Koperasi - Tambah Customer',
                     'siswa'     => $this->customerModel
                                 ->join('kartu', 'kartu.id_kartu = customer.id_kartu')
                                 ->where('id_customer', session('id_customer'))

@@ -9,28 +9,30 @@
         <table class="table table-bordered">
             <thead>
                 <tr>
-                    <th>Nama Customer</th>
+                    <th>Barcode Produk</th>
                     <th>Nama Produk</th>
-                    <th>Total Barang</th>
-                    <th>Total Pembayaran</th>
-                    <th>Nama Kasir</th>
-                    <th>Metode Pembayaran</th>
-                    <th>Tanggal Transaksi</th>
+                    <th>QTY</th>
+                    <th>Jumlah Transaksi</th>
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($transaksi as $row): ?>
+            <?php foreach ($transaksi as $transaction) : ?>
+            <?php foreach ($transaction['items'] as $item) : ?>
+                        <tr>
+                            <td><?= esc($item['qr_produk']); ?></td>
+                            <td><?= esc($item['nama_produk']); ?></td>
+                            <td><?= esc($item['qty_transaksi']); ?></td>
+                            <td><?= esc('Rp ' . number_format($item['jumlah_transaksi'], 0, ',', '.')); ?></td>
+                        </tr>
+                    <?php endforeach; ?>
                     <tr>
-                        <td><?= $row->nama_customer; ?></td>
-                        <td><?= $row->nama_produk; ?></td>
-                        <td><?= $row->qty_transaksi; ?></td>
-                        <td><?= number_format($row->total_transaksi, 2, ',', '.'); ?></td>
-                        <td><?= $row->nama_pegawai; ?></td>
-                        <td><?= $row->metode_bayar_transaksi; ?></td>
-                        <td><?= $row->created_at; ?></td>
+                        <td>TOTAL PEMBAYARAN</td>
+                        <td></td>
+                        <td></td>
+                        <td><?= esc('Rp ' . number_format($transaction['total_transaksi'], 0, ',', '.')); ?></td>
                     </tr>
-                <?php endforeach; ?>
             </tbody>
+            <?php endforeach; ?>
         </table>
     </div>
 </div>

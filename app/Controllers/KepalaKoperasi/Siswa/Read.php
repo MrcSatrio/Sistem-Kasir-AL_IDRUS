@@ -16,7 +16,7 @@ class Read extends BaseController
         ->findAll();
 
     $data = [
-        'title' => 'Koperasi - Data Siswa',
+        'title' => 'Koperasi - Data Customer',
         'kartu' => $this->kartuModel->findAll(),
         'siswa' => $siswa,
     ];

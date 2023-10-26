@@ -14,7 +14,7 @@ class Update extends BaseController
         if (!$this->request->is('post')) {
             $getCustomer = $this->customerModel->find($id);
             $data = [
-                'title' => 'Koperasi - Edit Siswa',
+                'title' => 'Koperasi - Edit Customer',
                 'siswa' => $getCustomer,
             ];
             return view('kepalakoperasi/siswa/update-profile', $data);

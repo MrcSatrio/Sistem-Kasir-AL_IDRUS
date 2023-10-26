@@ -18,23 +18,18 @@ class Read extends BaseController
 
     public function index()
 {
-    $dateFrom = $this->request->getVar('dateFrom');
-    $dateTo = $this->request->getVar('dateTo');
-
-    // Buat instance model
-    $transaksiModel = new \App\Models\TransaksiModel();
-
-
-    // Lakukan filter berdasarkan tanggal jika ada nilai yang diberikan
-    if ($dateFrom && $dateTo) {
-        $transaksiModel->where("created_at BETWEEN '$dateFrom' AND '$dateTo'");
-    }
-
-    $transaksi = $transaksiModel
-        ->join('transaksi_detail', 'transaksi_detail.id_transaksi = transaksi.id_transaksi')
-        ->join('pegawai', 'pegawai.id_pegawai = transaksi.id_pegawai')
-        ->join('customer', 'customer.id_customer = transaksi.id_customer')
+    $transaksi = $this->transaksiModel
+        ->select('transaksi.*, pegawai.nama_pegawai, customer.nama_customer')
+        ->join('pegawai', 'transaksi.id_pegawai = pegawai.id_pegawai', 'left')
+        ->join('customer', 'transaksi.id_customer = customer.id_customer', 'left')
         ->findAll();
+
+    // Lakukan pengecekan dan gantilah jika data customer null
+    foreach ($transaksi as &$tr) {
+        if ($tr['nama_customer'] === null) {
+            $tr['nama_customer'] = 'Non Member';
+        }
+    }
 
     $data = [
         'title' => 'Koperasi - Data Siswa',
@@ -44,4 +39,5 @@ class Read extends BaseController
 
     return view('kepalakoperasi/transaksi/read', $data);
 }
+
 }
