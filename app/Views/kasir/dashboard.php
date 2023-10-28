@@ -187,9 +187,36 @@ $this->section('container'); ?>
                 </form>
             </div>
         </div>
+
+        <div class="card shadow mb-4">
+            <!-- Card Body -->
+            <div class="card-body">
+                <h5 class="card-title">Tarik Tunai</h5>
+                <?php if (session()->has('topup_errors')) : ?>
+                    <div class="alert alert-danger" id="alertErrors">
+                        <?= session('topup_errors') ?>
+                    </div>
+                <?php endif; ?>
+                <form action="<?= base_url('kasir/transaksi/withdraw') ?>" method="post">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" name="nama_customer_withdraw" id="nama_customer_withdraw" readonly>
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary" type="button" id="getMemberWithdraw">Scan</button>
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                    <input type="number" class="form-control" name="nominal_withdraw" placeholder="Masukan Nominal">
+                    </div>
+                    <input type="hidden" name="id_kartu_withdraw" id="id_kartu_withdraw">
+                    <input type="hidden" name="id_customer_withdraw" id="id_customer_withdraw">
+                    <input type="hidden" name="id_pegawai_withdraw" value="<?= session('id_pegawai') ?>">
+                    <input type="hidden" name="nama_pegawai_withdraw" value="<?= session('nama') ?>">
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-upload"></i> Tarik Tunai</button>
+                </form>
+            </div>
+        </div>
     </div>
 </div>
-
 
 <script>
     function tambahProduk() {
@@ -376,6 +403,41 @@ $this->section('container'); ?>
                                 document.getElementById('id_kartu_topup').value = member.id_kartu;
                                 document.getElementById('id_customer_topup').value = member.id_customer;
                                 document.getElementById('nama_customer_topup').value = member.nama_customer;
+                            } else {
+                                alert("Member tidak ditemukan.");
+                            }
+                        },
+                        error: function(jqXHR, textStatus, errorThrown) {
+                            console.log("Error:", textStatus, errorThrown);
+                        }
+                    });
+                }
+            }
+        });
+    });
+    document.getElementById('getMemberWithdraw').addEventListener('click', function() {
+        Swal.fire({
+            title: 'Scanning...',
+            text: 'Mulai scan kartu member',
+            input: 'text',
+            inputPlaceholder: 'Menunggu scanning...',
+            confirmButtonText: 'OK',
+            showCancelButton: true,
+            preConfirm: (inputValue) => {
+                if (inputValue) {
+                    $.ajax({
+                        url: "<?= base_url('kasir/get-member-row') ?>",
+                        method: "POST",
+                        data: {
+                            nomor_kartu: inputValue
+                        },
+                        success: function(data) {
+                            console.log("Data received:", data);
+                            if (data.status) {
+                                var member = data.data;
+                                document.getElementById('id_kartu_withdraw').value = member.id_kartu;
+                                document.getElementById('id_customer_withdraw').value = member.id_customer;
+                                document.getElementById('nama_customer_withdraw').value = member.nama_customer;
                             } else {
                                 alert("Member tidak ditemukan.");
                             }

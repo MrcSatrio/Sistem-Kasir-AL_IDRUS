@@ -92,6 +92,7 @@ $routes->group('kasir', ['filter' => 'role'], function ($routes) {
 
     $routes->post('transaksi/checkout', 'Kasir\Transaksi\Checkout::index');
     $routes->post('transaksi/topup', 'Kasir\Transaksi\Topup::index');
+    $routes->post('transaksi/withdraw', 'Kasir\Transaksi\Withdraw::index');
     $routes->get('checkout/print', 'Kasir\Transaksi\ReceiptPrint::index');
 });
 
