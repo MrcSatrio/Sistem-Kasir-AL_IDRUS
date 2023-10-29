@@ -15,6 +15,9 @@ class TransaksiDetailModel extends Model
         'id_transaksi',
         'qr_produk',
         'qty_transaksi',
-        'jumlah_transaksi'
+        'jumlah_transaksi',
+        'harga_modal',
+        'stok_awal',
+        'stok_akhir',
     ];
 }

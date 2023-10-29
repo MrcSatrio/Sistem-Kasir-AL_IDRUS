@@ -137,6 +137,7 @@ $this->section('container'); ?>
                         <input type="hidden" name="id_customer" id="id_customer">
                         <input type="hidden" name="saldo_kartu" id="saldo_kartu">
                         <input type="hidden" name="id_pegawai" value="<?= session('id_pegawai') ?>">
+
                     </div>
                     <div class="text-right mr-2">
                         <a href="<?= site_url('kasir/checkout/print') ?>" class="btn btn-outline-primary w-25"><i class="fas fa-print"></i> Print Invoice</a>
@@ -243,7 +244,7 @@ $this->section('container'); ?>
                     } else {
                         var newRow = table.insertRow(0);
                         newRow.setAttribute('data-barcode', produk.qr_produk);
-                        var cols = 5;
+                        var cols = 8;
 
                         for (var i = 0; i < cols; i++) {
                             var cell = newRow.insertCell(i);
@@ -280,8 +281,27 @@ $this->section('container'); ?>
                                 input.id = "jumlah_transaksi";
                                 input.style.width = "100%";
                                 input.value = produk.harga_produk;
+                            } else if (i === 5) {
+                                input.name = "harga_beli[]";
+                                input.id = "harga_beli";
+                                input.type = "hidden";
+                                input.style.width = "100%";
+                                input.value = produk.harga_beli;
                             }
-
+                            else if (i === 6) {
+                                input.name = "stok[]";
+                                input.id = "stok";
+                                input.type = "hidden";
+                                input.style.width = "100%";
+                                input.value = produk.stok;
+                            }
+                            else if (i === 7) {
+                                input.name = "terjual_produk[]";
+                                input.id = "terjual_produk";
+                                input.type = "hidden";
+                                input.style.width = "100%";
+                                input.value = produk.terjual_produk;
+                            }
                             cell.appendChild(input);
                         }
                     }

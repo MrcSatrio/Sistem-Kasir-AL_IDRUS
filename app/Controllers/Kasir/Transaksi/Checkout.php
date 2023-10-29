@@ -6,6 +6,7 @@ use \App\Controllers\BaseController;
 
 class Checkout extends BaseController
 {
+    protected $produkModel;
     protected $transaksiModel;
     protected $transaksidetailModel;
     protected $customerModel;
@@ -19,6 +20,30 @@ class Checkout extends BaseController
         $qty_transaksi = $this->request->getVar('qty_transaksi[]');
         $harga_produk = $this->request->getVar('harga_produk[]');
         $jumlah_transaksi = $this->request->getVar('jumlah_transaksi[]');
+        $terjual_produk = $this->request->getVar('terjual_produk[]');
+        $stok_awal = $this->request->getVar('stok[]');
+        $harga_modal = $this->request->getVar('harga_beli[]');
+        $stok_akhir = [];
+        $terjual = [];
+        
+        for ($i = 0; $i < count($stok_awal); $i++) {
+            $stok_akhir[] = $stok_awal[$i] - $qty_transaksi[$i];
+            $terjual[] = $terjual_produk[$i] + $qty_transaksi[$i];
+        }
+        
+        for ($i = 0; $i < count($qr_produk); $i++) {
+            // Construct an update array for both 'stok' and 'terjual_produk'
+            $produkupdate = [
+                'stok' => $stok_akhir[$i],
+                'terjual_produk' => $terjual[$i]
+            ];
+        
+            // Update the product's stock and 'terjual_produk' based on its QR code
+            $this->produkModel->update(['qr_produk' => $qr_produk[$i]], $produkupdate);
+        }
+
+
+
 
         if (!empty($this->request->getVar('kembalian_transaksi')) || $this->request->getVar('kembalian_transaksi') == 0) {
             $id_customer = null;
@@ -62,9 +87,14 @@ class Checkout extends BaseController
                 'id_transaksi' => $this->transaksiModel->getInsertID(),
                 'qr_produk' => $qr_produk[$i],
                 'qty_transaksi' => $qty_transaksi[$i],
-                'jumlah_transaksi' => $jumlah_transaksi[$i]
+                'jumlah_transaksi' => $jumlah_transaksi[$i],
+                'harga_modal' => $harga_modal[$i],
+                'stok_awal' => $stok_awal[$i],
+                'stok_akhir' => $stok_akhir[$i],
+
             ]);
         }
+                
 
         $receiptData = [
             'no_transaksi' => $this->transaksiModel->getInsertID(),

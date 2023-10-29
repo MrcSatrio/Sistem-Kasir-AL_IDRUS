@@ -40,10 +40,12 @@ class Detail extends BaseController
                     'nama_pegawai' => $tr['nama_pegawai'],
                     'metode_bayar_transaksi' => $tr['metode_bayar_transaksi'],
                     'total_transaksi' => $tr['total_transaksi'],
+                    'created_at' => $tr['created_at'],
                     'items' => [],
                 ];
             }
             $data[$transaksiId]['items'][] = [
+                'harga_modal' => $tr['harga_modal'],
                 'qr_produk' => $tr['qr_produk'],
                 'nama_produk' => $tr['nama_produk'],
                 'qty_transaksi' => $tr['qty_transaksi'],

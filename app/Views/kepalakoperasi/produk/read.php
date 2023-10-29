@@ -19,7 +19,9 @@ $this->section('container'); ?>
                         <th>Kategori Produk</th>
                         <th>Brand Produk</th>
                         <th>Nama Produk</th>
-                        <th>Harga Produk</th>
+                        <th>Harga Jual</th>
+                        <th>Harga Beli</th>
+                        <th>Stok Produk</th>
                         <th style="width: 15%;">Action</th>
                     </tr>
                 </thead>
@@ -33,6 +35,8 @@ $this->section('container'); ?>
                             <td><?= $pr['nama_brand']; ?></td>
                             <td><?= $pr['nama_produk']; ?></td>
                             <td>Rp.<?= number_format($pr['harga_produk']); ?></td>
+                            <td>Rp.<?= number_format($pr['harga_beli']); ?></td>
+                            <td><?= $pr['stok']; ?></td>
                             <td>
                                 <a href="<?= base_url('koperasi/produk/update/' . $pr['qr_produk']) ?>" class="btn btn-sm btn-warning btn-circle update">
                                     <i class="far fa-edit"></i>

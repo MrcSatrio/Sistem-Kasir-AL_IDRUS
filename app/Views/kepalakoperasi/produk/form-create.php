@@ -72,13 +72,34 @@
         </div>
     </div>
     <div class="form-group row">
-        <label for="" class="col-sm-2 col-form-label">Harga Produk</label>
+        <label for="" class="col-sm-2 col-form-label">Harga Beli</label>
+        <div class="col-sm-10">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Rp</span>
+                </div>
+                <input type="text" class="form-control" placeholder="9.900" name="harga_beli">
+            </div>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="" class="col-sm-2 col-form-label">Harga Jual</label>
         <div class="col-sm-10">
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <span class="input-group-text">Rp</span>
                 </div>
                 <input type="text" class="form-control" placeholder="9.900" name="harga_produk">
+            </div>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="" class="col-sm-2 col-form-label">Stok Barang</label>
+        <div class="col-sm-10">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                </div>
+                <input type="text" class="form-control" placeholder="Stok Barang" name="stok">
             </div>
         </div>
     </div>
